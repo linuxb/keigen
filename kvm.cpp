@@ -267,7 +267,7 @@ static BaseHLO* paran_parser() {
     return expr;
 }
 
-void init_mat(float *mat, int row_num, int col_num) {
+void InitMat(float *mat, int row_num, int col_num) {
     for (int i = 0; i < row_num; i++) {
         for (int j = 0; j < col_num; j++) {
             mat[i * col_num + j] = 1.0;
@@ -285,7 +285,7 @@ int main() {
     mat_z(0, 0) = 6;
     cout << "res matrix: " << mat_z << endl;
     float xmat[6 * 6];
-    init_mat(xmat, 6, 6);
+    InitMat(xmat, 6, 6);
     cout << xmat[0] << endl;
     return 0;
 }
