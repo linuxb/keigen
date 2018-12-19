@@ -39,7 +39,7 @@ struct MyAllocator {
     }
 };
 
-struct Matrix {
+struct KMatrix {
     int width;
     int height;
     float* data;
@@ -64,6 +64,18 @@ void Run() {
     Eigen::VectorXf v(size), u(size), w(size);
     u = v + w;
     std::cout << u << std::endl;
+}
+
+// at runtime
+void KL_bad_allocate() {
+    auto huge = static_cast<size_t>(-1);
+    ::operator new(huge);
+}
+
+void KL_compute_op() {
+    Eigen::Matrix2d mat;
+    KL_bad_allocate();
+//    std::bad_alloc();
 }
 
 void AlignedAllocate() {
@@ -158,7 +170,7 @@ int main() {
     memset(my_key, 'k', 6);
     printf("%s\n", my_key);
     InitMat<6, 6>(mat, 6, 6);
-    ::Matrix cmat = {6, 5};
+    ::KMatrix cmat = {6, 5};
     cmat.data = (float*)malloc(cmat.width * cmat.height * sizeof(float));
     cmat.data[3] = 1;
     printf("%.1f\n", cmat.data[3]);
