@@ -110,7 +110,7 @@ void MatMul(const Matrix A, const Matrix B, Matrix C) {
         printf("Error while allocate matrix C ==> %s\n", cudaGetErrorString(err));
         exit(-1);
     }
-	// invoke kernel
+	  // invoke kernel
     KDot<<<dim_grid, dim_block>>>(d_A, d_B, d_C);
     err = cudaThreadSynchronize();
     if (err) {
@@ -143,7 +143,7 @@ int main()
 	for (int i = 0; i < A.height; i++) {
 		for (int j = 0; j < A.width; j++) {
 			A.data[i * A.width + j] = 1;
-		} 
+		}
 	}
 	for (int i = 0; i < B.height; i++) {
 		for (int j = 0; j < B.width; j++) {
@@ -152,7 +152,7 @@ int main()
 	}
 	MatMul(A, B, C);
 	printf("res: \n");
-	// print out the result 
+	// print out the result
 	for (int i = 0; i < C.height; i++) {
 		for (int j = 0; j < C.width; j++) {
 			printf("%.1f ", C.data[i * C.width + j]);

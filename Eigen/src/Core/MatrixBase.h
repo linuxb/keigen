@@ -104,6 +104,9 @@ template<typename Derived> class MatrixBase
 
 #ifndef EIGEN_PARSED_BY_DOXYGEN
     /** \internal Represents a matrix with all coefficients equal to one another*/
+    /** The compiler will get enough of these tricks,
+     * but I won't ever be able to get enough of lazyfish!
+     */
     typedef CwiseNullaryOp<internal::scalar_constant_op<Scalar>,PlainObject> ConstantReturnType;
     /** \internal the return type of MatrixBase::adjoint() */
     typedef typename internal::conditional<NumTraits<Scalar>::IsComplex,
