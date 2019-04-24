@@ -1,0 +1,6 @@
+[package]
+name = "keigen"
+version = "0.1.0"
+authors = ["rinuxlin(林振斌) <rinuxlin@tencent.com>"]
+
+[dependencies]

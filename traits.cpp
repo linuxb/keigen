@@ -397,6 +397,11 @@ namespace sfinae {
 }
 
 
+namespace mkl {
+    
+}
+
+
 static void RunMono() {
     std::cout << "type equation: " << std::is_same<replace_type<int[3][9], int, float>::type,
             float[3][9]>::value << "\n";

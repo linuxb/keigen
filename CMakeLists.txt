@@ -22,7 +22,8 @@ add_executable(r_traits traits.cpp)
 add_executable(r_boost boost.cpp)
 add_executable(r_kvm kvm.cpp)
 add_executable(r_kq kq.cpp Eigen)
-
+add_executable(r_mojo alg/mojo.c)
+add_executable(r_zr alg/zr.cpp)
 # Find the libraries that correspond to the LLVM components
 # that we wish to use
 llvm_map_components_to_libnames(llvm_libs core)

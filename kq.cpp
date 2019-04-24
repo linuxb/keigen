@@ -93,7 +93,7 @@ void AlignedAllocate() {
     Area *pool;
     // guarantee the address of `pool` multiple of 32(bytes), while `malloc` will not
     if (posix_memalign(reinterpret_cast<void**>(&pool), 32, 64 * 3)) {
-        printf("error while allocate aligned memory\n");
+        perror("error while allocate aligned memory\n");
     }
 //    pool = (Area*)malloc(24 * 3);
     // if we don't access to these memory, the calculation below only operator
@@ -161,6 +161,12 @@ void Zmalloc() {
     free(ptr);
     free(other);
 }
+//
+//struct st {
+//    int status;
+//    short *pdata;
+//    char errs[32];
+//};
 
 int main() {
     size_t ss = 0;
@@ -176,5 +182,6 @@ int main() {
     printf("%.1f\n", cmat.data[3]);
     Run();
     Zmalloc();
+//    printf("size is %ld\n", sizeof(st));
     return 0;
 }
